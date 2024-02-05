@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+
+@import url(./reset.css);
+
+:root {
+  /* Color's */
+  --color-1: #FFF5F0;
+  --color-2: #FFFCFA;
+  --color-3: #F3EAF4;
+  --color-4: #F1D4BE;
+  --color-5: #4C4C4C;
+  --color-6: #262626;
+  --color-7: #9DB9DD;
+  --color-8: #38B6FF;
+  --color-9: #DF91AB;
+  --color-10: #FF66C4;
+  --color-11: #FFAE80;
+
+  /* Font's */
+  --h1: 700 1.62rem "Outfit", Arial, Sans-serif;
+  --h2: 600 1.5rem "Outfit", Arial, Sans-serif;
+  --h3: 500 1.3rem "Outfit", Arial, Sans-serif;
+  --h4: 500 1.15rem "Outfit", Arial, Sans-serif;
+  --text-primary: 400 1rem "Outfit", Arial, Sans-serif;
+  --text-secondary: 500 1rem "Outfit", Arial, Sans-serif;
+  --text-tertiary: 400 0.87rem "Outfit", Arial, Sans-serif;
+  --text-detail: 400 0.87rem "Outfit", Arial, Sans-serif;
+
+  /* Other's */
+  --scroll-bar-color: #FFAE80;
+  --scroll-bar-background: #FFF5F0;
+
+  --outline: 2px dotted #;
+  --hover: #;
+}
+
+.kids {
+  background: var(--color-1);
+  color: var(--color-6);
+
+  font: var(--text-primary);
+
+  user-select: none;
+
+  width: 100vw;
+  height: 100vh;
+
+  margin: auto;
+  max-width: 425px;
+
+  border-left: 2px solid var(--color-6);
+  border-right: 2px solid var(--color-6);
+}
+
+/* Titles Presets */
+h1 {
+  font: var(--h1);
+}
+
+h2 {
+  font: var(--h2);
+}
+
+h3 {
+  font: var(--h3);
+}
+
+h4 {
+  font: var(--h4);
+}
+
+/* ! Scroll Bar */
+/** The CSS code you provided is responsible for styling the scroll bar in a web page. */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scroll-bar-color) var(--scroll-bar-background);
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scroll-bar-background);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-bar-color);
+  border-radius: 20px;
+  border: 4px solid var(--scroll-bar-background);
+}
+
+/* Presets */
+._btn {
+  border: 2px solid var(--color-6);
+  border-radius: 5px;
+
+  padding: .5rem;
+  font-size: 1.3rem;
+}
+
+._btn:hover {
+  transition: all .5s;
+  background-color: var(--color-11);
+}
+
+._btn:focus-visible {
+  transition: all .5s;
+  outline: 2px dotted var(--color-11);
+  background-color: var(--color-11);
+}
+
+/* Header & Footer */
+.kids ._header,
+.kids ._footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 1rem .5rem;
+}
+
+.kids ._header {
+  border-bottom: 2px solid var(--color-6);
+}
+
+.kids ._footer {
+  position: absolute;
+  bottom: 0;
+  
+  width: 100%;
+  max-width: 423px;
+
+  border-top: 2px solid var(--color-6);
+}
+
+.kids ._header img {
+  width: 7rem;
+}
+
+.kids ._header nav,
+.kids ._footer span {
+  display: flex;
+  align-items: center;
+  
+  gap: .5rem;
+}
