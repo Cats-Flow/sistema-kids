@@ -1,20 +1,21 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap");
 
 @import url(./reset.css);
 
 :root {
   /* Color's */
-  --color-1: #FFF5F0;
-  --color-2: #FFFCFA;
-  --color-3: #F3EAF4;
-  --color-4: #F1D4BE;
-  --color-5: #4C4C4C;
+  --color-1: #fff5f0;
+  --color-2: #fffcfa;
+  --color-3: #f3eaf4;
+  --color-4: #f1d4be;
+  --color-5: #4c4c4c;
   --color-6: #262626;
-  --color-7: #9DB9DD;
-  --color-8: #38B6FF;
-  --color-9: #DF91AB;
-  --color-10: #FF66C4;
-  --color-11: #FFAE80;
+  --color-7: #9db9dd;
+  --color-8: #38b6ff;
+  --color-9: #df91ab;
+  --color-10: #ff66c4;
+  --color-11: #ffae80;
+  --color-12: #ffc4a1;
 
   /* Font's */
   --h1: 700 1.62rem "Outfit", Arial, Sans-serif;
@@ -27,8 +28,8 @@
   --text-detail: 400 0.87rem "Outfit", Arial, Sans-serif;
 
   /* Other's */
-  --scroll-bar-color: #FFAE80;
-  --scroll-bar-background: #FFF5F0;
+  --scroll-bar-color: #ffae80;
+  --scroll-bar-background: #fff5f0;
 
   --outline: 2px dotted #;
   --hover: #;
@@ -42,14 +43,12 @@
 
   user-select: none;
 
-  width: 100vw;
-  height: 100vh;
-
   margin: auto;
   max-width: 425px;
+}
 
-  border-left: 2px solid var(--color-6);
-  border-right: 2px solid var(--color-6);
+.kids body {
+  height: -webkit-fill-available;
 }
 
 /* Titles Presets */
@@ -95,19 +94,94 @@ h4 {
   border: 2px solid var(--color-6);
   border-radius: 5px;
 
-  padding: .5rem;
+  padding: 0.5rem;
   font-size: 1.3rem;
 }
 
+._btn.icon {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+
+  gap: .5rem;
+}
+
+._btn.orange {
+  background-color: var(--color-12);
+}
+
 ._btn:hover {
-  transition: all .5s;
+  transition: all 0.5s;
   background-color: var(--color-11);
 }
 
 ._btn:focus-visible {
-  transition: all .5s;
+  transition: all 0.5s;
+
   outline: 2px dotted var(--color-11);
   background-color: var(--color-11);
+}
+
+._card {
+  color: var(--color-6);
+  background-color: var(--color-2);
+
+  border: 2px solid var(--color-6);
+  border-radius: 10px;
+
+  padding: 1.5rem;
+  margin-left: 0.5rem;
+  margin-right: 1rem;
+  gap: 2rem;
+
+  display: flex;
+  flex-direction: column;
+
+  position: relative;
+}
+
+._card h2 {
+  text-align: center;
+}
+
+._card::after {
+  background-color: var(--color-6);
+  border-radius: 10px;
+
+  content: "";
+
+  display: block;
+
+  height: -webkit-fill-available;
+  width: 100%;
+
+  position: absolute;
+  top: -2px;
+  left: 0;
+
+  transform: translate(8px, 8px);
+  transition: transform 0.2s ease-out;
+
+  z-index: -1;
+}
+
+._input {
+  border: 2px solid var(--color-6);
+  border-radius: 5px;
+
+  padding: 0.8rem;
+
+  width: -webkit-fill-available;
+}
+
+._input:hover {
+  transition: all 0.5s;
+  border: 2px solid var(--color-11);
+}
+
+._input:focus-visible {
+  border: 2px solid var(--color-11);
+  outline: 2px dotted var(--color-11);
 }
 
 /* Header & Footer */
@@ -117,7 +191,9 @@ h4 {
   align-items: center;
   justify-content: space-between;
 
-  padding: 1rem .5rem;
+  padding: 1rem 0.5rem;
+
+  position: relative;
 }
 
 .kids ._header {
@@ -125,12 +201,6 @@ h4 {
 }
 
 .kids ._footer {
-  position: absolute;
-  bottom: 0;
-  
-  width: 100%;
-  max-width: 423px;
-
   border-top: 2px solid var(--color-6);
 }
 
@@ -138,10 +208,66 @@ h4 {
   width: 7rem;
 }
 
-.kids ._header nav,
+.kids ._header nav {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+
+  gap: 0.5rem;
+}
+
 .kids ._footer span {
   display: flex;
   align-items: center;
-  
-  gap: .5rem;
+
+  gap: 0.5rem;
+}
+
+.kids ._header ._menu {
+  background: var(--color-2);
+
+  border: 2px solid var(--color-6);
+  border-radius: 10px;
+
+  font-size: 1.15rem;
+
+  position: absolute;
+  right: 16px;
+  top: 82px;
+
+  width: 9rem;
+  z-index: 1;
+}
+
+.kids ._header ._menu ._opt {
+  padding: 0.8rem;
+  border-bottom: 2px solid var(--color-6);
+}
+
+.kids ._header ._menu ._opt.p {
+  border-radius: 10px 10px 0 0;
+}
+
+.kids ._header ._menu ._opt.u {
+  border-radius: 0 0 10px 10px;
+}
+
+.kids ._header ._menu ._opt.sair {
+  border: none;
+}
+
+.kids ._header ._menu ._opt:hover {
+  transition: all 0.5s;
+  background-color: var(--color-11);
+}
+
+@media screen and (min-width: 375px) {
+  .kids {
+    border-left: 2px solid var(--color-6);
+    border-right: 2px solid var(--color-6);
+  }
+
+  ._card {
+    padding: 1.5rem 2.5rem;
+  }
 }

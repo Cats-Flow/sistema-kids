@@ -1,0 +1,78 @@
+.kids.gp {
+  height: 100vh;
+}
+
+/* Home */
+.kids ._home {
+  background-image: url(../image/background.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  height: 100vh;
+
+  display: grid;
+  place-content: center;
+}
+
+/* Login */
+.kids ._login {
+  height: -webkit-fill-available;
+
+  display: grid;
+  justify-content: normal;
+  align-items: baseline;
+  align-content: space-between;
+}
+
+.kids ._login ._header {
+  justify-content: center;
+}
+
+.kids ._login ._header nav {
+  display: none !important;
+}
+
+.kids ._main {
+  display: grid;
+  place-content: center;
+}
+
+.kids ._login ._card form {
+  display: grid;
+  place-content: center;
+  gap: 2rem;
+}
+
+.kids ._login ._card div {
+  display: grid;
+  place-content: center;
+  gap: 0.8rem;
+}
+
+/* Dash */
+.kids ._dash ._header .return {
+  display: none !important;
+}
+
+.kids ._dash ._main {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2.5rem;
+
+  padding: 3rem 0.2rem;
+}
+
+.kids ._dash ._card nav {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.8rem;
+}
+
+@media screen and (min-width: 375px) {
+  .kids ._dash ._main {
+    padding: 3rem 1rem;
+  }
+}

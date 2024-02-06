@@ -144,6 +144,10 @@ textarea {
   padding: 0;
 }
 
+input:focus {
+  outline: none;
+}
+
 button,
 select {
   text-transform: none;
@@ -294,4 +298,17 @@ video {
 /** The `:focus-visible` selector is used to apply styles to an element when it receives focus and is also visible to the user. */
 :focus-visible {
   outline: none;
+}
+
+/* Reset - Chakra UI */
+
+.kids ._header .css-0 {
+  position: initial !important;
+  inset: 0 !important;
+  transform: none !important;
+}
+
+.kids ._header .css-sjt5nk {
+  transform-origin: none !important;
+  transform: none !important;
 }
