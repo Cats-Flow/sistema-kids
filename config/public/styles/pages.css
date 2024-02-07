@@ -2,6 +2,24 @@
   height: 100vh;
 }
 
+.kids ._dash ._main,
+.kids ._turma ._main,
+.kids ._geaula ._main,
+.kids ._notes ._main  {
+  display: flex;
+  flex-direction: column;
+
+  gap: 2.5rem;
+
+  padding: 3rem 0.2rem;
+}
+
+.kids ._turma ._card.alunos,
+.kids ._dash ._card.admin,
+.kids ._geaula ._card.aulas {
+  padding: 1.5rem 0.5rem;
+}
+
 /* Home */
 .kids ._home {
   background-image: url(../image/background.png);
@@ -44,35 +62,78 @@
   gap: 2rem;
 }
 
-.kids ._login ._card div {
-  display: grid;
-  place-content: center;
-  gap: 0.8rem;
-}
-
 /* Dash */
 .kids ._dash ._header .return {
   display: none !important;
 }
 
-.kids ._dash ._main {
-  display: flex;
-  flex-direction: column;
-
-  gap: 2.5rem;
-
-  padding: 3rem 0.2rem;
+/* Turmas */
+.kids ._turma ._card.tools h2 {
+  font-size: 1.1rem;
 }
 
-.kids ._dash ._card nav {
-  display: flex;
-  flex-direction: column;
+.kids ._turma ._card.alunos .cad {
+  width: -webkit-fill-available;
+}
 
-  gap: 0.8rem;
+.kids ._turma ._cnt {
+  display: flex;
+  align-items: center;
+
+  gap: 0.5rem;
+}
+
+.kids ._turma ._cnt p {
+  border: 2px solid var(--color-6);
+  border-radius: 5px;
+
+  padding: 0.8rem;
+
+  width: -webkit-fill-available;
+
+  font-size: 0.93rem;
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kids ._turma ._cnt .check {
+  padding: 0.8rem;
+
+  height: 49.59px;
+  width: 60px;
+}
+
+/* Gerenciar aulas */
+.kids ._geaula ._card.aulas ._btn {
+  font-size: 1.06rem !important;
+}
+
+/* Notas */
+.kids ._notes ._card h2 {
+  text-align: start;
+}
+
+.kids ._notes ._card p {
+  text-align: justify;
+
+  font-size: 1.1rem;
 }
 
 @media screen and (min-width: 375px) {
-  .kids ._dash ._main {
-    padding: 3rem 1rem;
+  .kids ._turma ._card.alunos,
+  .kids ._dash ._card.admin,
+  .kids ._geaula ._card.aulas {
+    padding: 1.5rem;
+  }
+
+  /* Turmas */
+  .kids ._turma ._card.tools h2 {
+    font-size: 1.26rem;
+  }
+
+  .kids ._turma ._cnt p {
+    font-size: 1rem;
   }
 }

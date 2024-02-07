@@ -15,9 +15,6 @@ export function Header() {
           <button type="submit" title="Retornar para página anterior" className="_btn return" onClick={ReturnPage}>
             <ArrowUUpLeft />
           </button>
-          <button type="submit" title="Retornar para página anterior" className="_btn return" onClick={ReturnPage}>
-            <ArrowUUpLeft />
-          </button>
           <Menu>
             <MenuButton as="button" className="_btn menu" title="Menu lateral">
               <Equals />

@@ -10,7 +10,7 @@ export function Login() {
         <section className="_card login">
           <h2>Entre no sistema</h2>
           <form name="Entre no sistema" action="">
-            <div>
+            <div className="_div">
               <input className="_input" placeholder="Usuário" type="text" name="Usuário" id="user" maxLength={32} />
               <input className="_input" placeholder="Senha" type="password" name="Senha" id="password" maxLength={32} />
             </div>
