@@ -1,6 +1,6 @@
 import React from "react";
-import { Header } from "../../content/header";
-import { Footer } from "../../content/footer";
+import { Header } from "../content/header";
+import { Footer } from "../content/footer";
 import { MagnifyingGlass } from "@phosphor-icons/react";
 
 export function Aulas() {

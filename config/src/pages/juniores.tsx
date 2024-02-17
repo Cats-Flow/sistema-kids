@@ -1,7 +1,7 @@
 import React from "react";
-import { Header } from "../../content/header";
-import { Footer } from "../../content/footer";
-import Data from "../../content/date";
+import { Header } from "../content/header";
+import { Footer } from "../content/footer";
+import Data from "../content/date";
 import { MagnifyingGlass, PlusCircle } from "@phosphor-icons/react";
 import { Checkbox } from "@chakra-ui/react";
 
