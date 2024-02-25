@@ -283,8 +283,21 @@ h4 {
   border-bottom: 2px solid var(--color-6);
 }
 
-.kids ._header ._menu ._opt.p {
+.kids ._dash ._header ._menu ._opt.p1 {
+  display: none;
+}
+
+.kids ._dash ._header ._menu ._opt.p2 {
   border-radius: 10px 10px 0 0;
+}
+
+.kids ._header ._menu ._opt.p1 {
+  display: flex;
+  border-radius: 10px 10px 0 0;
+}
+
+.kids ._header ._menu ._opt.p2 {
+  border-radius: 0;
 }
 
 .kids ._header ._menu ._opt.u {

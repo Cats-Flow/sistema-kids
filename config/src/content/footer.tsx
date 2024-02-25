@@ -8,7 +8,7 @@ export function Footer() {
         <p>© 2024 Cat`s Flow</p>
         <span>
           <GitBranch />
-          B1.0.3
+          B1.0.4
         </span>
       </footer>
     </>

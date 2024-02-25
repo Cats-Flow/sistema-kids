@@ -1,11 +1,22 @@
 import React from "react";
+import { Helmet } from 'react-helmet';
+import { Baby, Backpack, Calendar, MagnifyingGlass, Notebook, Notepad, PlusCircle } from "@phosphor-icons/react";
+
 import { Header } from "../content/header";
 import { Footer } from "../content/footer";
-import { Baby, Backpack, Calendar, MagnifyingGlass, Notebook, Notepad, PlusCircle } from "@phosphor-icons/react";
 
 export function Dash() {
   return (
-    <>
+    <section className="_dash">
+      <Helmet>
+        <title>Painel Inicial • Sistema Kids | Ministério Kids</title>
+        <meta name="title" content="Painel Inicial • Sistema Kids | Ministério Kids" />
+        <meta property="og:title" content="Painel Inicial • Sistema Kids | Ministério Kids" />
+        <meta property="twitter:title" content="Painel Inicial • Sistema Kids | Ministério Kids" />
+
+        <meta property="og:url" content="https://kids.catsflow.com/sistema/dash" />
+        <meta property="twitter:url" content="https://kids.catsflow.com/sistema/dash" />
+      </Helmet>
       <Header />
       <main className="_main">
         <section className="_card chamada">
@@ -61,6 +72,6 @@ export function Dash() {
         </section>
       </main>
       <Footer />
-    </>
+    </section>
   )
 }
