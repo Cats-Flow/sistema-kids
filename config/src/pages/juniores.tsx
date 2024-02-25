@@ -1,14 +1,25 @@
 import React from "react";
+import { Helmet } from 'react-helmet';
+import { Checkbox } from "@chakra-ui/react";
+import { MagnifyingGlass, PlusCircle } from "@phosphor-icons/react";
+
+import Data from "../content/date";
 import { Header } from "../content/header";
 import { Footer } from "../content/footer";
-import Data from "../content/date";
-import { MagnifyingGlass, PlusCircle } from "@phosphor-icons/react";
-import { Checkbox } from "@chakra-ui/react";
 
 export function Juniores() {
   const currentDate = new Date();
   return (
-    <>
+    <section className="_turma">
+      <Helmet>
+        <title>Turma dos Juniores • Sistema Kids | Ministério Kids</title>
+        <meta name="title" content="Turma dos Juniores • Sistema Kids | Ministério Kids" />
+        <meta property="og:title" content="Turma dos Juniores • Sistema Kids | Ministério Kids" />
+        <meta property="twitter:title" content="Turma dos Juniores • Sistema Kids | Ministério Kids" />
+
+        <meta property="og:url" content="https://kids.catsflow.com/sistema/turmas/juniores" />
+        <meta property="twitter:url" content="https://kids.catsflow.com/sistema/turmas/juniores" />
+      </Helmet>
       <Header />
       <main className="_main">
         <section className="_card tools">
@@ -54,6 +65,6 @@ export function Juniores() {
         </form>
       </main>
       <Footer />
-    </>
+    </section>
   )
 }

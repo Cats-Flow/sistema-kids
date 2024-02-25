@@ -1,10 +1,21 @@
 import React from "react";
+import { Helmet } from 'react-helmet';
+
 import { Header } from "../content/header";
 import { Footer } from "../content/footer";
 
 export function Notas() {
   return (
-    <>
+    <section className="_notes">
+      <Helmet>
+        <title>Notas e Informações • Sistema Kids | Ministério Kids</title>
+        <meta name="title" content="Notas e Informações • Sistema Kids | Ministério Kids" />
+        <meta property="og:title" content="Notas e Informações • Sistema Kids | Ministério Kids" />
+        <meta property="twitter:title" content="Notas e Informações • Sistema Kids | Ministério Kids" />
+
+        <meta property="og:url" content="https://kids.catsflow.com/sistema/notes" />
+        <meta property="twitter:url" content="https://kids.catsflow.com/sistema/notes" />
+      </Helmet>
       <Header />
       <main className="_main">
         <section className="_card">
@@ -21,6 +32,6 @@ export function Notas() {
         </section>
       </main>
       <Footer />
-    </>
+    </section>
   )
 }

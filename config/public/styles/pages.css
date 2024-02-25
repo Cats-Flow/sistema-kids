@@ -1,11 +1,14 @@
-.kids.gp {
+.kids ._body {
   height: 100vh;
+
+  display: grid;
+  align-content: space-between;
 }
 
 .kids ._dash ._main,
 .kids ._turma ._main,
 .kids ._geaula ._main,
-.kids ._notes ._main  {
+.kids ._notes ._main {
   display: flex;
   flex-direction: column;
 
@@ -34,15 +37,6 @@
 }
 
 /* Login */
-.kids ._login {
-  height: -webkit-fill-available;
-
-  display: grid;
-  justify-content: normal;
-  align-items: baseline;
-  align-content: space-between;
-}
-
 .kids ._login ._header {
   justify-content: center;
 }
@@ -51,15 +45,9 @@
   display: none !important;
 }
 
-.kids ._main {
-  display: grid;
-  place-content: center;
-}
-
-.kids ._login ._card form {
-  display: grid;
-  place-content: center;
-  gap: 2rem;
+.kids ._login ._card {
+  width: 18rem;
+  margin: auto;
 }
 
 /* Dash */
@@ -119,6 +107,74 @@
   text-align: justify;
 
   font-size: 1.1rem;
+}
+
+/* Loader */
+.load {
+  display: grid;
+  place-content: center;
+
+  height: 100vh;
+}
+
+.loader {
+  transform: translate(-50%, -50%);
+  width: 50px;
+  height: 10px;
+  background: var(--color-11);
+  border-radius: 5px;
+  animation: load 1.8s ease-in-out infinite;
+}
+
+.loader:before,
+.loader:after {
+  position: absolute;
+  display: block;
+  content: "";
+  animation: load 1.8s ease-in-out infinite;
+  height: 10px;
+  border-radius: 5px;
+}
+
+.loader:before {
+  top: -20px;
+  left: 10px;
+  width: 40px;
+  background: var(--color-8);
+}
+
+.loader:after {
+  bottom: -20px;
+  width: 35px;
+  background: var(--color-10);
+}
+
+@keyframes load {
+  0% {
+    transform: translateX(40px);
+  }
+
+  50% {
+    transform: translateX(-30px);
+  }
+  100% {
+    transform: translateX(40px);
+  }
+}
+
+/* User */
+.kids ._user h1,
+.kids ._user h4,
+.kids ._user ._btn {
+  text-align: center;
+}
+
+.kids ._user ._iconuser {
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+
+  font-size: 2.5rem;
 }
 
 @media screen and (min-width: 375px) {

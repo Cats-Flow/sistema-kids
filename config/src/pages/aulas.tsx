@@ -1,11 +1,22 @@
 import React from "react";
+import { Helmet } from 'react-helmet';
+import { MagnifyingGlass } from "@phosphor-icons/react";
+
 import { Header } from "../content/header";
 import { Footer } from "../content/footer";
-import { MagnifyingGlass } from "@phosphor-icons/react";
 
 export function Aulas() {
   return (
-    <>
+    <section className="_body _geaula">
+      <Helmet>
+        <title>Gerenciar aulas • Sistema Kids | Ministério Kids</title>
+        <meta name="title" content="Gerenciar aulas • Sistema Kids | Ministério Kids" />
+        <meta property="og:title" content="Gerenciar aulas • Sistema Kids | Ministério Kids" />
+        <meta property="twitter:title" content="Gerenciar aulas • Sistema Kids | Ministério Kids" />
+
+        <meta property="og:url" content="https://kids.catsflow.com/sistema/aulas/" />
+        <meta property="twitter:url" content="https://kids.catsflow.com/sistema/aulas/" />
+      </Helmet>
       <Header />
       <main className="_main">
         <section className="_card tools">
@@ -38,6 +49,6 @@ export function Aulas() {
         </section>
       </main>
       <Footer />
-    </>
+    </section>
   )
 }
