@@ -9,7 +9,7 @@ import { Aulas } from "./aulas";
 import { Notas } from "./notas";
 import { Login } from "./login";
 import { Profile } from "./user";
-import CadAluno from "./cadaluno";
+import { CadAluno } from "./cadaluno";
 import { Loader } from "./loader";
 import { Juniores } from "./juniores";
 import { Maternal } from "./maternal";
@@ -49,7 +49,6 @@ export function App() {
         <Route path="/turmas/juniores" element={<AuthenticationGuard component={Juniores} />} />
         <Route path="/turmas/maternal" element={<AuthenticationGuard component={Maternal} />} />
         <Route path="/aulas/" element={<AuthenticationGuard component={Aulas} />} />
-        <Route path="/api/*" Component={NullComponent} />
       </Routes>
     </BrowserRouter>
   )
