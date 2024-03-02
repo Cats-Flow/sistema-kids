@@ -1,12 +1,13 @@
 {
   "name": "sistema-kids",
   "private": true,
-  "version": "B1.0.5",
+  "version": "B1.0.6",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "server": "node server.cjs"
   },
   "dependencies": {
     "@auth0/auth0-react": "^2.2.4",
@@ -14,9 +15,6 @@
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "@phosphor-icons/react": "^2.0.15",
-    "@react-navigation/native": "^6.1.10",
-    "@types/react-router-dom": "^5.3.3",
-    "express": "^4.18.2",
     "framer-motion": "^11.0.3",
     "localforage": "^1.10.0",
     "match-sorter": "^6.3.3",
