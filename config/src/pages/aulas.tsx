@@ -23,7 +23,7 @@ export function Aulas() {
           <div className="_div">
             <label className="_sec" htmlFor="search">
               <input className="_input" type="search" name="Pesquisar aula" id="searchaulas" placeholder="Pesquisar aula" />
-              <button type="submit" className="_btn">
+              <button title="Pesquisar aula" type="submit" className="_btn">
                 <MagnifyingGlass />
               </button>
             </label>

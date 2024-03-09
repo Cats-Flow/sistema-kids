@@ -14,8 +14,7 @@ import { Loader } from "./loader";
 import { Juniores } from "./juniores";
 import { Maternal } from "./maternal";
 import { AuthenticationGuard } from "../content/guardprotect";
-
-const NullComponent = () => null;
+import { NotFoundPage } from "./notpage";
 
 export function App() {
   const { isLoading } = useAuth0();
@@ -38,6 +37,8 @@ export function App() {
 
         <meta property="og:url" content="https://kids.catsflow.com/sistema/" />
         <meta property="twitter:url" content="https://kids.catsflow.com/sistema/" />
+
+        <link rel="shortcut icon" href="./config/assets/favicon.png" type="image/png" />
       </Helmet>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -49,6 +50,7 @@ export function App() {
         <Route path="/turmas/juniores" element={<AuthenticationGuard component={Juniores} />} />
         <Route path="/turmas/maternal" element={<AuthenticationGuard component={Maternal} />} />
         <Route path="/aulas/" element={<AuthenticationGuard component={Aulas} />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
   )

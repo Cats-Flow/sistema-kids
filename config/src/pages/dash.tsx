@@ -57,7 +57,7 @@ export function Dash() {
           <h2>Administrador</h2>
           <label className="_sec" htmlFor="search">
             <input className="_input" type="search" name="Pesquisar alunos" id="searchalunos" placeholder="Pesquisar alunos" />
-            <button type="submit" className="_btn">
+            <button type="submit" title="Pesquisar aluno" className="_btn">
               <MagnifyingGlass />
             </button>
           </label>

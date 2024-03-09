@@ -4,6 +4,8 @@ import { Select } from "@chakra-ui/react";
 import { Header } from "../content/header";
 import { Footer } from "../content/footer";
 
+import InputMask from 'react-input-mask';
+
 export function CadAluno() {
   return (
     <>
@@ -22,49 +24,19 @@ export function CadAluno() {
             <h2>Cadastrar aluno</h2>
             <form className="_div">
               <div className="_div">
-                <input
-                  className="_input"
-                  type="text"
-                  placeholder="Nome do aluno"
-                  name="nome"
-                  required
-                />
-                <input
-                  className="_input"
-                  type="text"
-                  placeholder="Nome do responsável"
-                  name="responsavel"
-                  required
-                />
-                <input
-                  className="_input"
-                  type="text"
-                  placeholder="Data de nascimento"
-                  name="nascimento"
-                  required
-                />
-                <textarea
-                  className="_textarea"
-                  name="observacao"
-                  placeholder="Observação"
-                ></textarea>
+                <input className="_input" type="text" placeholder="Nome do aluno" name="nome" required />
+                <input className="_input" type="text" placeholder="Nome do responsável" name="responsavel" required />
+                <InputMask className="_input" type="text" mask="99/99/9999" placeholder="Data de nascimento" name="nascimento" required />
+                <textarea className="_textarea" name="observacao" placeholder="Observação"></textarea>
                 <label className="_select" htmlFor="selturma">
-                  <Select
-                    className="camp"
-                    id="selturma"
-                    name="turma"
-                    title="Turma do aluno"
-                    required
-                  >
-                    <option value="" hidden>
-                      Selecionar turma
-                    </option>
+                  <Select className="camp" name="turma" title="Turma do aluno" required>
+                    <option value="" hidden>Selecionar turma</option>
                     <option value="Maternal">Maternal</option>
                     <option value="Juniores">Juniores</option>
                   </Select>
                 </label>
               </div>
-              <button className="_btn orange" type="submit">
+              <button title="Cadastrar aluno" className="_btn orange" type="submit">
                 Cadastrar
               </button>
             </form>
