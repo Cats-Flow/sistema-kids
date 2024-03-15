@@ -1,14 +1,11 @@
 import React from "react";
 import { Helmet } from 'react-helmet';
-import { Checkbox } from "@chakra-ui/react";
-import { MagnifyingGlass, PlusCircle } from "@phosphor-icons/react";
+import { Checkbox, Select } from "@chakra-ui/react";
 
-import Data from "../content/date";
-import { Header } from "../content/header";
-import { Footer } from "../content/footer";
+import { Header } from "../../content/header";
+import { Footer } from "../../content/footer";
 
 export function Maternal() {
-  const currentDate = new Date();
   return (
     <section className="_turma">
       <Helmet>
@@ -22,22 +19,24 @@ export function Maternal() {
       </Helmet>
       <Header />
       <main className="_main">
-        <section className="_card tools">
-          <Data date={currentDate} />
+        <section className="_card">
+          <h2>Chamada maternal</h2>
           <div className="_div">
-            <label className="_sec" htmlFor="search">
-              <input className="_input" type="search" name="Pesquisar alunos" id="searchalunos" placeholder="Pesquisar alunos" />
-              <button type="submit" className="_btn">
-                <MagnifyingGlass />
-              </button>
+            <input type="text" className="_input" placeholder="Data da aula" required />
+            <label className="_select" htmlFor="selturma">
+              <Select className="camp" name="professor" title="Professor" required>
+                <option value="" hidden>Selecionar o professor</option>
+                <option value="Itatiane dos Santos">Itatiane dos Santos</option>
+                <option value="Patrícia Nunes">Patrícia Nunes</option>
+                <option value="Adrieli Flores">Adrieli Flores</option>
+                <option value="Paula Rodrigues">Paula Rodrigues</option>
+                <option value="Henry Rodrigues">Henry Rodrigues</option>
+              </Select>
             </label>
-            <nav className="_row">
-              <a title="Salvar alunos do maternal em PDF" className="_btn min" href="/exportar/alunos/maternal/pdf">Salvar em PDF</a>
-              <a title="Salvar alunos do maternal em planilha" className="_btn min" href="/exportar/alunos/maternal/exc">Salvar em planilha</a>
-            </nav>
+            <input type="text" className="_input" placeholder="Título da aula" required />
           </div>
         </section>
-        <form action="" name="Chamada maternal" className="_card alunos">
+        <form action="" name="Chamada juniores" className="_card alunos">
           <h2>Alunos do maternal</h2>
           <div className="_div">
             <div className="_cnt">
@@ -53,15 +52,9 @@ export function Maternal() {
               <Checkbox name="Presença do aluno" className="_btn check"></Checkbox>
             </div>
           </div>
-          <div className="_div">
-            <a title="Criar turma" href="/registrar/aluno" className="_btn icon">
-              <PlusCircle />
-              Cadastrar aluno
-            </a>
-            <button type="submit" title="Cadastrar aula" className="_btn orange cad">
-              Cadastrar aula
-            </button>
-          </div>
+          <button type="submit" title="Cadastrar aula" className="_btn orange cad">
+            Cadastrar aula
+          </button>
         </form>
       </main>
       <Footer />

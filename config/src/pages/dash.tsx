@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from 'react-helmet';
-import { Baby, Backpack, Calendar, MagnifyingGlass, Notebook, Notepad, PlusCircle } from "@phosphor-icons/react";
+import { Baby, Backpack, MagnifyingGlass, Notebook, Notepad } from "@phosphor-icons/react";
 
 import { Header } from "../content/header";
 import { Footer } from "../content/footer";
@@ -31,18 +31,27 @@ export function Dash() {
               Juniores
             </a>
           </nav>
-          <a title="Criar turma" href="/registrar/turma" className="_btn icon">
-            <PlusCircle />
-            Criar turma
-          </a>
+        </section>
+        <section className="_card geraulas">
+          <h2>Gerenciar aulas</h2>
+          <nav className="_div">
+            <a title="Gerenciar aulas da turma do maternal" href="/aulas/maternal/" className="_btn icon">
+              <Baby />
+              Maternal
+            </a>
+            <a title="Gerenciar aulas da turma do juniores" href="/aulas/juniores/" className="_btn icon">
+              <Backpack />
+              Juniores
+            </a>
+          </nav>
         </section>
         <section className="_card tool">
           <h2>Ferramentas</h2>
           <nav className="_div">
-            <a title="Escala ministerial" href="/escalas" className="_btn icon">
+            {/* <a title="Escala ministerial" href="/escalas" className="_btn icon">
               <Calendar />
               Escala ministerial
-            </a>
+            </a> */}
             <a title="Material de estudos" href="https://drive.google.com/drive/folders/11YmX-xli_EF8_DZ8pm9LPTDzCMquOfe-?usp=drive_link" className="_btn icon">
               <Notebook />
               Material de estudo
@@ -57,17 +66,14 @@ export function Dash() {
           <h2>Administrador</h2>
           <label className="_sec" htmlFor="search">
             <input className="_input" type="search" name="Pesquisar alunos" id="searchalunos" placeholder="Pesquisar alunos" />
-            <button type="submit" className="_btn">
+            <button type="submit" title="Pesquisar aluno" className="_btn">
               <MagnifyingGlass />
             </button>
           </label>
           <nav className="_row">
-            <a title="Exportar lista de alunos" className="_btn min" href="/exportar/alunos">Salvar alunos</a>
-            <a title="Exportar chamada da aula" className="_btn min" href="/exportar/aulas">Salvar aulas</a>
-            <a title="Registrar novo professor" className="_btn min" href="/registrar/professor">Registrar professor</a>
+            {/* <a title="Exportar lista de alunos" className="_btn min" href="/exportar/alunos">Salvar alunos</a> */}
+            {/* <a title="Exportar chamada da aula" className="_btn min" href="/exportar/aulas">Salvar aulas</a> */}
             <a title="Registrar novo aluno" className="_btn min" href="/registrar/aluno">Registrar aluno</a>
-            <a title="Gerenciar aulas" className="_btn min" href="/aulas/">Gerenciar aula</a>
-            <a title="Registrar nova nota" className="_btn min" href="/registrar/notas">Registrar nota</a>
           </nav>
         </section>
       </main>
