@@ -11,5 +11,5 @@
     "lib": ["ESNext", "DOM"], // Adicione "DOM" para suporte ao acesso ao DOM, se necessário
     "resolveJsonModule": true
   },
-  "include": ["config/src/pages/"]
+  "include": ["config/src/"]
 }

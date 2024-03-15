@@ -1,19 +1,19 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import { Select } from "@chakra-ui/react";
-import { Header } from "../content/header";
-import { Footer } from "../content/footer";
+import { Header } from "../../content/header";
+import { Footer } from "../../content/footer";
 
 import InputMask from 'react-input-mask';
 
-export function CadAluno() {
+export function RNA() {
   return (
     <>
       <Helmet>
-        <title>Cadastrar novo aluno • Sistema Kids | Ministério Kids</title>
-        <meta name="title" content="Cadastrar novo aluno • Sistema Kids | Ministério Kids" />
-        <meta property="og:title" content="Cadastrar novo aluno • Sistema Kids | Ministério Kids" />
-        <meta property="twitter:title" content="Cadastrar novo aluno • Sistema Kids | Ministério Kids" />
+        <title>Registrar novo aluno • Sistema Kids | Ministério Kids</title>
+        <meta name="title" content="Registrar novo aluno • Sistema Kids | Ministério Kids" />
+        <meta property="og:title" content="Registrar novo aluno • Sistema Kids | Ministério Kids" />
+        <meta property="twitter:title" content="Registrar novo aluno • Sistema Kids | Ministério Kids" />
         <meta property="og:url" content="https://kids.catsflow.com/sistema/registrar/aluno" />
         <meta property="twitter:url" content="https://kids.catsflow.com/sistema/registrar/aluno" />
       </Helmet>

@@ -5,16 +5,24 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import { Home } from "./home";
 import { Dash } from "./dash";
-import { Aulas } from "./aulas";
 import { Notas } from "./notas";
 import { Login } from "./login";
 import { Profile } from "./user";
-import { CadAluno } from "./cadaluno";
 import { Loader } from "./loader";
-import { Juniores } from "./juniores";
-import { Maternal } from "./maternal";
+
+
 import { AuthenticationGuard } from "../content/guardprotect";
 import { NotFoundPage } from "./notpage";
+
+import { RNA } from "./registrar/alunos";
+
+import { Maternal } from "./turmas/maternal";
+import { Juniores } from "./turmas/juniores";
+
+import { GAM } from "./aulas/maternal";
+import { GCM } from "./aulas/chamada/maternal";
+import { GCJ } from "./aulas/chamada/juniores";
+import { GAJ } from "./aulas/juniores";
 
 export function App() {
   const { isLoading } = useAuth0();
@@ -46,10 +54,13 @@ export function App() {
         <Route path="/dash" element={<AuthenticationGuard component={Dash} />} />
         <Route path="/notes" element={<AuthenticationGuard component={Notas} />} />
         <Route path="/user" element={<AuthenticationGuard component={Profile} />} />
-        <Route path="/registrar/aluno" element={<AuthenticationGuard component={CadAluno} />} />
+        <Route path="/registrar/aluno" element={<AuthenticationGuard component={RNA} />} />
         <Route path="/turmas/juniores" element={<AuthenticationGuard component={Juniores} />} />
         <Route path="/turmas/maternal" element={<AuthenticationGuard component={Maternal} />} />
-        <Route path="/aulas/" element={<AuthenticationGuard component={Aulas} />} />
+        <Route path="/aulas/maternal" element={<AuthenticationGuard component={GAM} />} />
+        <Route path="/aulas/juniores" element={<AuthenticationGuard component={GAJ} />} />
+        <Route path="/aulas/maternal/chamada" element={<AuthenticationGuard component={GCM} />} />
+        <Route path="/aulas/juniores/chamada" element={<AuthenticationGuard component={GCJ} />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
