@@ -145,8 +145,9 @@ app.get('/aulas/maternal/datas', async (req, res) => {
 });
 
 // Rota para buscar os detalhes da chamada do Maternal por ID
-app.get('/chamada/maternal/:chamadaID', async (req, res) => {
-  const chamadaID = parseInt(req.params.chamadaID);
+// Rota para buscar os detalhes da chamada do Maternal por ID ou por chamadaID
+app.get('/aulas/maternal/chamada', async (req, res) => {
+  const chamadaID = parseInt(req.query.chamadaid);
 
   try {
     const chamada = await prisma.chamadaMaternal.findUnique({
@@ -167,6 +168,7 @@ app.get('/chamada/maternal/:chamadaID', async (req, res) => {
     handleErro(res, 'Erro ao buscar detalhes da chamada maternal', 500);
   }
 });
+
 
 // Rota para buscar as datas das aulas do Juniores
 app.get('/aulas/juniores/datas', async (req, res) => {

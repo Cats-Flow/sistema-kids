@@ -1,38 +1,11 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { format } from "date-fns";
-import { ptBR } from 'date-fns/locale';
+import React from "react";
 import { Helmet } from 'react-helmet';
 import { Select } from "@chakra-ui/react";
 
 import { Header } from "../../content/header";
 import { Footer } from "../../content/footer";
-import { Loading } from "../../content/loading";
-
-interface ChamadaMaternal {
-  id: number;
-  Data: string;
-}
 
 export function GAM() {
-  const [datasAulasMaternal, setDatasAulasMaternal] = useState<ChamadaMaternal[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    async function fetchDatasAulasMaternal() {
-      try {
-        const response = await axios.get<ChamadaMaternal[]>('http://localhost:3000/aulas/maternal/datas');
-        setDatasAulasMaternal(response.data);
-      } catch (error) {
-        console.error('Erro ao buscar datas das aulas do maternal:', error);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchDatasAulasMaternal();
-  }, []);
-
   return (
     <section className="_turma">
       <Helmet>
@@ -64,19 +37,7 @@ export function GAM() {
         <section className="_card">
           <h2>Aulas do maternal</h2>
           <nav className="_div">
-            {loading ? (
-              <Loading />
-            ) : (
-              datasAulasMaternal.map((chamada, index) => (
-                <a
-                  key={index}
-                  className="_btn"
-                  href={`/chamada/maternal/${chamada.id}`} // Ajuste o href para incluir o chamadaID na URL
-                  title={`Aula do maternal do dia ${format(new Date(chamada.Data), 'dd \'de\' MMMM \'de\' yyyy', { locale: ptBR })}`}>
-                  {`${format(new Date(chamada.Data), 'dd \'de\' MMMM \'de\' yyyy', { locale: ptBR })}`}
-                </a>
-              ))
-            )}
+            
           </nav>
         </section>
       </main>

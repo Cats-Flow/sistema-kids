@@ -49,18 +49,18 @@ export function App() {
         <link rel="shortcut icon" href="./config/assets/favicon.png" type="image/png" />
       </Helmet>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/dash" element={<AuthenticationGuard component={Dash} />} />
-        <Route path="/notes" element={<AuthenticationGuard component={Notas} />} />
-        <Route path="/user" element={<AuthenticationGuard component={Profile} />} />
-        <Route path="/registrar/aluno" element={<AuthenticationGuard component={RNA} />} />
-        <Route path="/turmas/juniores" element={<AuthenticationGuard component={Juniores} />} />
-        <Route path="/turmas/maternal" element={<AuthenticationGuard component={Maternal} />} />
-        <Route path="/aulas/maternal" element={<AuthenticationGuard component={GAM} />} />
-        <Route path="/aulas/juniores" element={<AuthenticationGuard component={GAJ} />} />
-        <Route path="/chamada/maternal/:chamadaID" element={<AuthenticationGuard component={GCM} />} />
-        <Route path="/chamada/juniores/:chamadaID" element={<AuthenticationGuard component={GCJ} />} />
+        <Route path="/sistema/" element={<Home />} />
+        <Route path="/sistema/login" element={<Login />} />
+        <Route path="/sistema/dash" element={<AuthenticationGuard component={Dash} />} />
+        <Route path="/sistema/notes" element={<AuthenticationGuard component={Notas} />} />
+        <Route path="/sistema/user" element={<AuthenticationGuard component={Profile} />} />
+        <Route path="/sistema/registrar/aluno" element={<AuthenticationGuard component={RNA} />} />
+        <Route path="/sistema/turmas/juniores" element={<AuthenticationGuard component={Juniores} />} />
+        <Route path="/sistema/turmas/maternal" element={<AuthenticationGuard component={Maternal} />} />
+        <Route path="/sistema/aulas/maternal" element={<AuthenticationGuard component={GAM} />} />
+        <Route path="/sistema/aulas/juniores" element={<AuthenticationGuard component={GAJ} />} />
+        <Route path="/sistema/aulas/maternal/chamada" element={<AuthenticationGuard component={GCM} />} />
+        <Route path="/sistema/aulas/juniores/:chamadaID" element={<AuthenticationGuard component={GCJ} />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
