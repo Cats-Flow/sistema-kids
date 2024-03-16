@@ -1,11 +1,93 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from 'react-helmet';
-import { Checkbox, Select } from "@chakra-ui/react";
+import { Alert, Checkbox, Select } from "@chakra-ui/react";
 
 import { Header } from "../../content/header";
 import { Footer } from "../../content/footer";
+import { Loading } from "../../content/loading";
+
+interface Aluno {
+  id: number;
+  nome: string;
+  presente: string;
+}
 
 export function Maternal() {
+  const [alunos, setAlunos] = useState<Aluno[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [professor, setProfessor] = useState("");
+  const [tituloAula, setTituloAula] = useState("");
+  const [dataAula, setDataAula] = useState(getFormattedDate());
+  const [alerta, setAlerta] = useState({ status: "", mensagem: "" });
+
+  useEffect(() => {
+    async function fetchAlunosMaternal() {
+      try {
+        const response = await fetch('http://localhost:3000/alunos/maternal');
+        if (response.ok) {
+          const data = await response.json();
+          setAlunos(data);
+        } else {
+          console.error('Erro ao buscar alunos do maternal');
+        }
+      } catch (error) {
+        console.error('Erro ao conectar-se ao servidor:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+    fetchAlunosMaternal();
+  }, []);
+
+  const handleCheckboxChange = (index: number) => (e: React.ChangeEvent<HTMLInputElement>) => {
+    const updatedAlunos = [...alunos];
+    updatedAlunos[index].presente = e.target.checked ? "presente" : "ausente";
+    setAlunos(updatedAlunos);
+  };
+
+  const handleProfessorChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setProfessor(e.target.value);
+  };
+
+  const handleDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setDataAula(e.target.value);
+  };
+
+  const handleTituloAulaChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTituloAula(e.target.value);
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    const [dia, mes, ano] = dataAula.split("/");
+    const dataFormatada = `${ano}-${mes.padStart(2, "0")}-${dia.padStart(2, "0")}T00:00:00`;
+
+    const alunosChamada = alunos.map(aluno => ({
+      nome: aluno.nome,
+      presente: aluno.presente,
+    }));
+
+    try {
+      const response = await fetch('http://localhost:3000/chamada/maternal', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ dataAula: dataFormatada, professor, tituloAula, alunos: alunosChamada }),
+      });
+
+      if (response.ok) {
+        setAlerta({ status: "success", mensagem: "Chamada salva com sucesso" });
+      } else {
+        setAlerta({ status: "error", mensagem: "Erro ao salvar chamada" });
+      }
+    } catch (error) {
+      console.error('Erro ao conectar-se ao servidor:', error);
+      setAlerta({ status: "error", mensagem: "Erro ao conectar-se ao servidor" });
+    }
+  };
+
   return (
     <section className="_turma">
       <Helmet>
@@ -18,46 +100,82 @@ export function Maternal() {
         <meta property="twitter:url" content="https://kids.catsflow.com/sistema/turmas/maternal" />
       </Helmet>
       <Header />
-      <main className="_main">
+      <form onSubmit={handleSubmit} className="_main">
         <section className="_card">
-          <h2>Chamada maternal</h2>
           <div className="_div">
-            <input type="text" className="_input" placeholder="Data da aula" required />
-            <label className="_select" htmlFor="selturma">
-              <Select className="camp" name="professor" title="Professor" required>
-                <option value="" hidden>Selecionar o professor</option>
-                <option value="Itatiane dos Santos">Itatiane dos Santos</option>
-                <option value="Patrícia Nunes">Patrícia Nunes</option>
-                <option value="Adrieli Flores">Adrieli Flores</option>
-                <option value="Paula Rodrigues">Paula Rodrigues</option>
-                <option value="Henry Rodrigues">Henry Rodrigues</option>
-              </Select>
-            </label>
-            <input type="text" className="_input" placeholder="Título da aula" required />
+            <label htmlFor="dataAula">Data da aula:</label>
+            <input
+              type="text"
+              id="Data"
+              name="dataAula"
+              value={dataAula}
+              onChange={handleDateChange}
+            />
+          </div>
+          <div className="_div">
+            <label htmlFor="professor">Professor:</label>
+            <select
+              id="professor"
+              name="professor"
+              value={professor}
+              onChange={handleProfessorChange}
+            >
+              <option value="">Selecione o professor</option>
+              <option value="Professor 1">Professor 1</option>
+              <option value="Professor 2">Professor 2</option>
+            </select>
+          </div>
+          <div className="_div">
+            <label htmlFor="tituloAula">Título da aula:</label>
+            <input
+              type="text"
+              id="tituloAula"
+              name="tituloAula"
+              value={tituloAula}
+              onChange={handleTituloAulaChange}
+            />
           </div>
         </section>
-        <form action="" name="Chamada juniores" className="_card alunos">
+        <section className="_card alunos">
           <h2>Alunos do maternal</h2>
+          {loading ? ( // Renderiza o Loader se loading for true
+            <Loading />
+          ) : (
+            <div className="_div">
+              {alunos.map((aluno, index) => (
+                <div key={aluno.id} className="_cnt">
+                  <p>{aluno.nome}</p>
+                  <Checkbox
+                    name={`presente_${index}`}
+                    className="_btn check"
+                    checked={aluno.presente === "presente"} // Verifica se aluno.presente é igual a "presente"
+                    onChange={handleCheckboxChange(index)}
+                  ></Checkbox>
+                </div>
+              ))}
+            </div>
+          )}
           <div className="_div">
-            <div className="_cnt">
-              <p>Henry de Barros Rodrigues</p>
-              <Checkbox name="Presença do aluno" className="_btn check"></Checkbox>
-            </div>
-            <div className="_cnt">
-              <p>Paula Cristiane de Barros Rodrigues Elias</p>
-              <Checkbox name="Presença do aluno" className="_btn check"></Checkbox>
-            </div>
-            <div className="_cnt">
-              <p>Henry de Barros Rodrigues</p>
-              <Checkbox name="Presença do aluno" className="_btn check"></Checkbox>
-            </div>
+            <button type="submit" title="Cadastrar aula" className="_btn orange cad">
+              Cadastrar aula
+            </button>
           </div>
-          <button type="submit" title="Cadastrar aula" className="_btn orange cad">
-            Cadastrar aula
-          </button>
-        </form>
-      </main>
+        </section>
+      </form>
+      {alerta.status && (
+        <Alert status={alerta.status === 'success' ? 'success' : 'error'} className="_card alert">
+          <div>
+            {alerta.status === 'success' ? '✅' : '❌'}
+          </div>
+          <p>{alerta.mensagem}</p>
+        </Alert>
+      )}
       <Footer />
     </section>
   )
+}
+
+function getFormattedDate() {
+  const today = new Date();
+  return today.toLocaleDateString('pt-BR');
 }

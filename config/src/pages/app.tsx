@@ -59,8 +59,8 @@ export function App() {
         <Route path="/turmas/maternal" element={<AuthenticationGuard component={Maternal} />} />
         <Route path="/aulas/maternal" element={<AuthenticationGuard component={GAM} />} />
         <Route path="/aulas/juniores" element={<AuthenticationGuard component={GAJ} />} />
-        <Route path="/aulas/maternal/chamada" element={<AuthenticationGuard component={GCM} />} />
-        <Route path="/aulas/juniores/chamada" element={<AuthenticationGuard component={GCJ} />} />
+        <Route path="/chamada/maternal/:chamadaID" element={<AuthenticationGuard component={GCM} />} />
+        <Route path="/chamada/juniores/:chamadaID" element={<AuthenticationGuard component={GCJ} />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </BrowserRouter>
