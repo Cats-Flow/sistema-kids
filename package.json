@@ -1,0 +1,40 @@
+{
+  "name": "sistema-kids",
+  "private": true,
+  "version": "B1.0.8",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "server": "node server.cjs"
+  },
+  "dependencies": {
+    "@auth0/auth0-react": "^2.2.4",
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.3",
+    "@emotion/styled": "^11.11.0",
+    "@phosphor-icons/react": "^2.0.15",
+    "@prisma/client": "^5.11.0",
+    "axios": "^1.6.8",
+    "date-fns": "^3.5.0",
+    "framer-motion": "^11.0.3",
+    "localforage": "^1.10.0",
+    "match-sorter": "^6.3.3",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-helmet": "^6.1.0",
+    "react-input-mask": "^2.0.4",
+    "react-router-dom": "^6.22.0",
+    "sort-by": "^0.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@types/react-helmet": "^6.1.11",
+    "@vitejs/plugin-react": "^4.2.1",
+    "prisma": "^5.11.0",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8"
+  }
+}
