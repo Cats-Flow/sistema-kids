@@ -1,11 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Helmet } from 'react-helmet';
 import { Select } from "@chakra-ui/react";
 
 import { Header } from "../../content/header";
 import { Footer } from "../../content/footer";
+import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
+import { Loading } from "../../content/loading";
+
+interface ChamadaJuniores {
+  id: number;
+  Data: string;
+}
 
 export function GAJ() {
+  const [datasAulasJuniores, setDatasAulasJuniores] = useState<ChamadaJuniores[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    async function fetchDatasAulasJuniores() {
+      try {
+        const response = await axios.get<ChamadaJuniores[]>('http://localhost:3000/aulas/juniores/datas');
+        setDatasAulasJuniores(response.data);
+      } catch (error) {
+        console.error('Erro ao buscar datas das aulas do maternal:', error);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    fetchDatasAulasJuniores();
+  }, []);
+
   return (
     <section className="_turma">
       <Helmet>
@@ -37,15 +64,19 @@ export function GAJ() {
         <section className="_card">
           <h2>Aulas do juniores</h2>
           <nav className="_div">
-            <a className="_btn" href="/aulas/juniores/chamada?data=aaaa-mm-dd" title="Aula do juniores do dia dd/mm">
-              DD de MMMM de AAAA
-            </a>
-            <a className="_btn" href="/aulas/juniores/chamada?data=aaaa-mm-dd" title="Aula do juniores do dia dd/mm">
-              DD de MMMM de AAAA
-            </a>
-            <a className="_btn" href="/aulas/juniores/chamada?data=aaaa-mm-dd" title="Aula do juniores do dia dd/mm">
-              DD de MMMM de AAAA
-            </a>
+            {loading ? (
+              <Loading />
+            ) : (
+              datasAulasJuniores.map((chamada, index) => (
+                <a
+                  key={index}
+                  className="_btn"
+                  href={`/chamada/juniores/${chamada.id}`} // Ajuste o href para incluir o chamadaID na URL
+                  title={`Aula do juniores do dia ${format(new Date(chamada.Data), 'dd \'de\' MMMM \'de\' yyyy', { locale: ptBR })}`}>
+                  {`${format(new Date(chamada.Data), 'dd \'de\' MMMM \'de\' yyyy', { locale: ptBR })}`}
+                </a>
+              ))
+            )}
           </nav>
         </section>
       </main>
