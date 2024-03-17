@@ -25,7 +25,7 @@ export function NotFoundPage() {
             <p>Parece que a página não existe.</p>
           </div>
           <nav className="_flex">
-            <a title="" className="_btn" href="">
+            <a title="Página inicial" className="_btn" href="./">
               <House />
               Home
             </a>

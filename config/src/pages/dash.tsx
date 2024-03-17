@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from 'react-helmet';
-import { Baby, Backpack, MagnifyingGlass, Notebook, Notepad } from "@phosphor-icons/react";
+import { Baby, Backpack, Notebook, Notepad } from "@phosphor-icons/react";
 
 import { Header } from "../content/header";
 import { Footer } from "../content/footer";
@@ -22,29 +22,29 @@ export function Dash() {
         <section className="_card chamada">
           <h2>Chamada escolar</h2>
           <nav className="_div">
-            <a title="Chamada escolar da turma maternal" href="/turmas/maternal" className="_btn icon">
+            <a title="Chamada escolar da turma maternal" href="./turmas/maternal" className="_btn icon">
               <Baby />
               Maternal
             </a>
-            <a title="Chamada escolar da turma juniores" href="/turmas/juniores" className="_btn icon">
+            <a title="Chamada escolar da turma juniores" href="./turmas/juniores" className="_btn icon">
               <Backpack />
               Juniores
             </a>
           </nav>
         </section>
-        <section className="_card geraulas">
+        {/* <section className="_card geraulas">
           <h2>Gerenciar aulas</h2>
           <nav className="_div">
-            <a title="Gerenciar aulas da turma do maternal" href="/aulas/maternal/" className="_btn icon">
+            <a title="Gerenciar aulas da turma do maternal" href="./aulas/maternal/" className="_btn icon">
               <Baby />
               Maternal
             </a>
-            <a title="Gerenciar aulas da turma do juniores" href="/aulas/juniores/" className="_btn icon">
+            <a title="Gerenciar aulas da turma do juniores" href="./aulas/juniores/" className="_btn icon">
               <Backpack />
               Juniores
             </a>
           </nav>
-        </section>
+        </section> */}
         <section className="_card tool">
           <h2>Ferramentas</h2>
           <nav className="_div">
@@ -64,16 +64,16 @@ export function Dash() {
         </section>
         <section className="_card admin">
           <h2>Administrador</h2>
-          <label className="_sec" htmlFor="search">
+          {/* <label className="_sec" htmlFor="search">
             <input className="_input" type="search" name="Pesquisar alunos" id="searchalunos" placeholder="Pesquisar alunos" />
             <button type="submit" title="Pesquisar aluno" className="_btn">
               <MagnifyingGlass />
             </button>
-          </label>
-          <nav className="_row">
+          </label> */}
+          <nav className="_row_div">
             {/* <a title="Exportar lista de alunos" className="_btn min" href="/exportar/alunos">Salvar alunos</a> */}
             {/* <a title="Exportar chamada da aula" className="_btn min" href="/exportar/aulas">Salvar aulas</a> */}
-            <a title="Registrar novo aluno" className="_btn min" href="/registrar/aluno">Registrar aluno</a>
+            <a title="Registrar novo aluno" className="_btn" href="./registrar/aluno">Registrar aluno</a>
           </nav>
         </section>
       </main>

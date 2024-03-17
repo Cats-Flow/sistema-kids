@@ -11,7 +11,7 @@ export function Login() {
   const handleLogin = async () => {
     await loginWithRedirect({
       appState: {
-        returnTo: "/dash",
+        returnTo: "/sistema/dash",
       },
     });
   };

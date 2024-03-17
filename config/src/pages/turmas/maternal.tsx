@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Helmet } from 'react-helmet';
-import { Alert, Checkbox, Select } from "@chakra-ui/react";
+import { Alert, Checkbox } from "@chakra-ui/react";
 
 import { Header } from "../../content/header";
 import { Footer } from "../../content/footer";
